@@ -40,16 +40,18 @@ class ImageDataset(Dataset):
         if self.transform:
           # Different data depending on if regressor
           # or colorization network
-          if self.regressor_only:
-            image_a = image_lab[1:2, :, :]
-            image_b = image_lab[2:3, :, :]
-            sample = (image_gray, image_a, image_b)
-            
-          else:
-            image_lab = self.transform(image)
-            image_gray = image_lab[0:1,:,:]
-            image_ab = self.transform(image)[1:,:,:]
-            
-            sample = (image_gray, image_lab, image_ab)
+            if self.regressor_only:
+                image_lab = self.transform(image)
+                image_gray = image_lab[0:1,:,:]
+                image_a = image_lab[1:2, :, :]
+                image_b = image_lab[2:3, :, :]
+                sample = (image_gray, image_a, image_b)
+
+            else:
+                image_lab = self.transform(image)
+                image_gray = image_lab[0:1,:,:]
+                image_ab = self.transform(image)[1:,:,:]
+
+                sample = (image_gray, image_lab, image_ab)
 
         return sample
