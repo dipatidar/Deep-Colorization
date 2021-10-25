@@ -8,7 +8,6 @@ class Regressor(nn.Module):
                  train_mode="regressor"):
         super(Regressor, self).__init__()
         self.train_mode = train_mode
-        print(in_channel,hidden_channel,out_dims)
 
         self.feature_maps = nn.Sequential(
             # input is Z, going into a convolution
@@ -16,7 +15,6 @@ class Regressor(nn.Module):
                       kernel_size=4, stride=2, padding=1),
             nn.BatchNorm2d(32),
             nn.LeakyReLU(),
-            #nn.ReLU()
 
             nn.Conv2d(in_channels=32, out_channels=64,
                       kernel_size=4, stride=2, padding=1),
@@ -32,20 +30,18 @@ class Regressor(nn.Module):
                       kernel_size=4, stride=2, padding=1),
             nn.BatchNorm2d(256),
             nn.LeakyReLU(),
-            
 
             nn.Conv2d(in_channels=256, out_channels=256,
                       kernel_size=4, stride=2, padding=1),
             nn.BatchNorm2d(256),
             nn.LeakyReLU(),
-            
 
             nn.Conv2d(in_channels=256, out_channels=512,
                       kernel_size=4, stride=2, padding=1),
             nn.BatchNorm2d(512),
             nn.LeakyReLU(),
         )
-        
+
         if self.train_mode == "regressor":
             self.lin = nn.Linear(in_features=512 * 2 * 2, out_features=out_dims)
 
@@ -57,4 +53,4 @@ class Regressor(nn.Module):
 
         else:
             return feature_maps
-        
+

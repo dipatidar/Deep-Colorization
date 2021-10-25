@@ -24,6 +24,7 @@ class Utils:
         plt.savefig(fig_name, dpi=220)
         plt.clf()
      
+    # Method to 
     @staticmethod
     def get_device():
         device = torch.device("cuda:0" if torch.cuda.is_available() else "cpu")
@@ -31,5 +32,37 @@ class Utils:
         num_workers = 8 if is_cuda_present else 0
 
         return device, is_cuda_present, num_workers
+    
+    @staticmethod
+    def showImageLab(image_Lab):
+        #image_bgr = cv2.imread(image_file)
+        #image_Lab = cv2.cvtColor(image_bgr, cv2.COLOR_BGR2LAB)
+
+        L = image_Lab[:, :, 0]
+        a = image_Lab[:, :, 1]
+        b = image_Lab[:, :, 2]
+        print(L)
+
+        plt.subplot(1, 3, 1)
+        plt.title('L')
+        plt.gray()
+        plt.imshow(L)
+        plt.axis('off')
+
+        plt.subplot(1, 3, 2)
+        plt.title('a')
+        plt.gray()
+        plt.imshow(a)
+        plt.axis('off')
+
+        plt.subplot(1, 3, 3)
+        plt.title('b')
+        plt.gray()
+        plt.imshow(b)
+        plt.axis('off')
+
+        plt.show() 
+
+        
 
       
