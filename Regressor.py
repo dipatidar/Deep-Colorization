@@ -45,7 +45,7 @@ class Regressor(nn.Module):
             nn.BatchNorm2d(512),
             nn.LeakyReLU(),
         )
-
+        
         if self.train_mode == "regressor":
             self.lin = nn.Linear(in_features=512 * 2 * 2, out_features=out_dims)
 
@@ -57,3 +57,4 @@ class Regressor(nn.Module):
 
         else:
             return feature_maps
+        
