@@ -23,3 +23,13 @@ class Utils:
         plt.draw()
         plt.savefig(fig_name, dpi=220)
         plt.clf()
+     
+    @staticmethod
+    def get_device():
+        device = torch.device("cuda:0" if torch.cuda.is_available() else "cpu")
+        is_cuda_present = True if torch.cuda.is_available() else False
+        num_workers = 8 if is_cuda_present else 0
+
+        return device, is_cuda_present, num_workers
+
+      
