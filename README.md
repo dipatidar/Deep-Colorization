@@ -74,9 +74,9 @@ These have been defined inside the `Utils` class under `get_hyperparameters()` .
 
 ## Generated output
 For given input images original, gray scale and colored reconstructed images <br/>
-<img src="https://github.com/dipatidar/Deep-Colorization/blob/main/Results/test_images/input_color.png">
-<img src = "https://github.com/dipatidar/Deep-Colorization/blob/main/Results/test_images/output_lab.png">
-<img src="https://github.com/dipatidar/Deep-Colorization/blob/main/Results/test_images/output_color.png">
+<img src="https://github.com/dipatidar/Deep-Colorization/blob/main/Results/InputOutputTestImages/input_color.png">
+<img src = "https://github.com/dipatidar/Deep-Colorization/blob/main/Results/InputOutputTestImages/output_lab.png">
+<img src="https://github.com/dipatidar/Deep-Colorization/blob/main/Results/InputOutputTestImages/output_color.png">
 
 
 
